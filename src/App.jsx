@@ -57,37 +57,43 @@ function App() {
     colors.find((item) => item.value === color)?.name || "Blue";
 
   return (
-    <div className="app">
+    <main className="app">
 
-      <div className="header">
-        <span className="eyebrow">INTERACTIVE 3D EXPERIENCE</span>
+      {/* Header */}
+      <header className="header">
+        <span className="eyebrow">
+          INTERACTIVE 3D EXPERIENCE
+        </span>
 
         <h1>3D Product Showcase</h1>
 
         <p>
           Rotate, explore and customize the product
         </p>
-      </div>
+      </header>
 
-      <div className="canvas-container">
-
+      {/* 3D Product Viewer */}
+      <div
+        className="canvas-container"
+        aria-label="Interactive 3D product viewer"
+      >
         <Canvas
           shadows
-          dpr={[1, 1.5]}
+          frameloop="demand"
+          dpr={[1, 1.25]}
           camera={{
             position: [4, 3.5, 6],
             fov: 50,
           }}
         >
-
           <ambientLight intensity={0.45} />
 
           <directionalLight
             position={[5, 8, 5]}
             intensity={3}
             castShadow
-            shadow-mapSize-width={2048}
-            shadow-mapSize-height={2048}
+            shadow-mapSize-width={1024}
+            shadow-mapSize-height={1024}
             shadow-camera-near={0.5}
             shadow-camera-far={20}
           />
@@ -115,17 +121,21 @@ function App() {
             enableDamping
             dampingFactor={0.08}
           />
-
         </Canvas>
 
-        <div className="interaction-hint">
+        <div
+          className="interaction-hint"
+          aria-hidden="true"
+        >
           🖱️ Drag to rotate &nbsp; • &nbsp; Scroll to zoom
         </div>
-
       </div>
 
-      <section className="product-info">
-
+      {/* Product Information */}
+      <section
+        className="product-info"
+        aria-labelledby="product-title"
+      >
         <div className="info-content">
 
           <div className="product-text">
@@ -133,7 +143,9 @@ function App() {
               PREMIUM 3D PRODUCT
             </span>
 
-            <h2>Modern Cube</h2>
+            <h2 id="product-title">
+              Modern Cube
+            </h2>
 
             <p>
               Explore this interactive 3D product and
@@ -143,15 +155,21 @@ function App() {
             </p>
           </div>
 
+          {/* Selected Color */}
           <div className="selected-color">
             <span>Selected Color</span>
 
-            <div className="selected-color-value">
+            <div
+              className="selected-color-value"
+              aria-live="polite"
+              aria-atomic="true"
+            >
               <span
                 className="selected-color-circle"
                 style={{
                   backgroundColor: color,
                 }}
+                aria-hidden="true"
               />
 
               <strong>{selectedColor}</strong>
@@ -160,10 +178,12 @@ function App() {
 
         </div>
 
+        {/* Features */}
         <div className="features">
 
           <div className="feature">
-            <span>↻</span>
+            <span aria-hidden="true">↻</span>
+
             <div>
               <strong>360° View</strong>
               <p>Rotate the product</p>
@@ -171,7 +191,8 @@ function App() {
           </div>
 
           <div className="feature">
-            <span>⌕</span>
+            <span aria-hidden="true">⌕</span>
+
             <div>
               <strong>Zoom</strong>
               <p>Explore product details</p>
@@ -179,7 +200,8 @@ function App() {
           </div>
 
           <div className="feature">
-            <span>✦</span>
+            <span aria-hidden="true">✦</span>
+
             <div>
               <strong>Custom Colors</strong>
               <p>Choose your favorite</p>
@@ -187,44 +209,55 @@ function App() {
           </div>
 
         </div>
-
       </section>
 
-      <div className="controls">
-
-        <h2>Choose Product Color</h2>
+      {/* Color Controls */}
+      <section
+        className="controls"
+        aria-labelledby="color-heading"
+      >
+        <h2 id="color-heading">
+          Choose Product Color
+        </h2>
 
         <div className="color-options">
 
           {colors.map((item) => (
             <button
               key={item.name}
+              type="button"
               className={`color-button ${
                 color === item.value ? "active" : ""
               }`}
               onClick={() => setColor(item.value)}
               aria-label={`Choose ${item.name} color`}
+              aria-pressed={color === item.value}
             >
               <span
                 className="color-circle"
                 style={{
                   backgroundColor: item.value,
                 }}
+                aria-hidden="true"
               />
 
               <span>{item.name}</span>
 
               {color === item.value && (
-                <span className="check">✓</span>
+                <span
+                  className="check"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
               )}
             </button>
           ))}
 
         </div>
+      </section>
 
-      </div>
-
-    </div>
+    </main>
   );
 }
 
