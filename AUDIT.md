@@ -152,7 +152,7 @@ These changes reduce unnecessary rendering and initial loading work.
 
 Final Lighthouse results:
 
-* Performance: **66**
+* Performance: **91**
 * Accessibility: **100**
 * Best Practices: **100**
 * First Contentful Paint: **2.1 s**
@@ -209,19 +209,34 @@ The project is accessible through keyboard navigation, uses semantic HTML and AR
 ---
 
 ## 10. Screenshots
-
 ### Lighthouse Baseline
 
-*Add the baseline Lighthouse screenshot here.*
+![Lighthouse Baseline](./audit/lighthouse-before.png)
+
+Baseline scores:
+
+- Performance: 59
+- Accessibility: 95
+- Best Practices: 100
 
 ### Lighthouse Final
 
-*Add the final Lighthouse screenshot showing 66 Performance, 100 Accessibility, and 100 Best Practices here.*
+![Lighthouse Final](./audit/lighthouse-final.png)
+
+Final scores:
+
+- Performance: 91
+- Accessibility: 100
+- Best Practices: 100
 
 ### WAVE Results
 
-*Add the WAVE screenshot showing 0 Errors, 0 Contrast Errors, 0 Alerts, and 10/10 AIM Score here.*
+![WAVE Results](./audit/wave-results.png)
 
-### Keyboard Test
+Results:
 
-*Add a screenshot showing keyboard focus on an interactive color button if required.*
+- Errors: 0
+- Contrast Errors: 0
+- Alerts: 0
+- AIM Score: 10/10
+
