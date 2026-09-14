@@ -207,8 +207,8 @@ The 3D Product Showcase successfully passed the main accessibility checks.
 The project is accessible through keyboard navigation, uses semantic HTML and ARIA where appropriate, and has been optimized to reduce the initial JavaScript loading cost of the 3D experience.
 
 ---
-
 ## 10. Screenshots
+
 ### Lighthouse Baseline
 
 ![Lighthouse Baseline](./audit/lighthouse-before.png)
@@ -239,4 +239,3 @@ Results:
 - Contrast Errors: 0
 - Alerts: 0
 - AIM Score: 10/10
-
